@@ -1,18 +1,9 @@
-import os
-import sys
-pyfile = os.environ.get('PYFILE')
-if not pyfile:
-sys.exit('PYFILE environment variable not set.')
-pycfile = pyfile + 'c'
-try:
-with open(pyfile, 'rb') as file:
-source_code = file.read()
-compiled_code = compile(source_code, pyfile, 'exec')
-with open(pycfile, 'wb') as compiled_file:
-compiled_file.write(compiled_code)
-print(f'Compiling {pyfile} ...')
-print(f'{pyfile} compiled successfully!')
-except FileNotFoundError:
-sys.exit(f'{pyfile} not found.')
-except Exception as e:
-sys.exit(f'Error compiling {pyfile}: {str(e)}'
+#!/bin/bash
+pyfile="$PYFILE"
+echo "Compiling $pyfile ..."
+python3 -m compileall -b "$pyfile" >/dev/null 2>&1
+if [ $? -eq 0 ]; then
+echo "$pyfile compiled successfully!"
+else
+echo "Compilation failed."
+fi
