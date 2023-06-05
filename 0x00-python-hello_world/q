@@ -1,0 +1,4 @@
+./100-write.py: line 1: import: command not found
+./100-write.py: line 2: message: command not found
+./100-write.py: line 3: syntax error near unexpected token `message'
+./100-write.py: line 3: `sys.stderr.write(message)'
