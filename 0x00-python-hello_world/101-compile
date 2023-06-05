@@ -1,0 +1,10 @@
+#!/bin/bash
+pyfile="$PYFILE"
+pycfile="${PYFILE%.*}.pyc"
+echo "Compiling $pyfile ..."
+python -m py_compile "$pyfile" 2>/dev/null
+if [ -f "$pycfile" ]; then
+echo "$pyfile compiled successfully!"
+else
+echo "Compilation failed."
+fi
