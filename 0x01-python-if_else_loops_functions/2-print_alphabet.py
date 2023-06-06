@@ -1,3 +1,5 @@
 #!/usr/bin/python3
-for j in range(97, 123):
-    print(chr(j), end="")
+start = 97
+end = 123
+for char in range(start, end):
+    print(chr(char), end="")
