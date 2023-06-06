@@ -1,4 +1,6 @@
 #!/usr/bin/python3
-# 4-print_hexa.py
-for i in range(100):
-    print("{:02d}".format(i), end=", " if i < 99 else "\n")
+for n in range(0, 100):
+    if n == 99:
+        print("{}".format(n))
+    else:
+        print("{:02}".format(n), end=", ")
