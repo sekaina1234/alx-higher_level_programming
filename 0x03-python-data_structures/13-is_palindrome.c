@@ -7,36 +7,43 @@
  * @head: pointer to pointer to the head of the linked list
  * Return: 1 if the linked list is a palindrome, 0 otherwise
  */
-int count = 0, start = 0, end;
-
 int is_palindrome(listint_t **head)
 {
-listint_t *current = *head;
-int values[1000];
-int count = 0;
-int start = 0;
-int end;
-
+listint_t *slow = *head;
+listint_t *fast = *head;
+listint_t *prev = NULL;
+listint_t *temp;
 
 if (*head == NULL || (*head)->next == NULL)
 return (1);
 
-while (current != NULL)
+/* Find the middle node using slow and fast pointers */
+while (fast != NULL && fast->next != NULL)
 {
-values[count] = current->n;
-current = current->next;
-count++;
+fast = fast->next->next;
+prev = slow;
+slow = slow->next;
 }
 
-end = count - 1;
-
-while (start < end)
+/* Reverse the second half of the list */
+prev->next = NULL;
+while (slow != NULL)
 {
-if (values[start] != values[end])
-return (0);
+temp = slow->next;
+slow->next = prev;
+prev = slow;
+slow = temp;
+}
 
-start++;
-end--;
+
+slow = prev;
+fast = *head;
+while (slow != NULL)
+{
+if (slow->n != fast->n)
+return (0);
+slow = slow->next;
+fast = fast->next;
 }
 
 return (1);
