@@ -1,25 +1,21 @@
+#define _XOPEN_SOURCE 700
+
+#include <stdio.h>
 #include <Python.h>
 
-/**
- * print_python_list_info - Prints basic info about Python lists.
- * @p: A PyObject list.
- */
 void print_python_list_info(PyObject *p)
 {
-Py_ssize_t size, alloc, i;
-PyObject *obj;
+PyListObject *list = (PyListObject *)p;
+Py_ssize_t size = Py_SIZE(list);
+Py_ssize_t i;
+PyObject *item;
 
-size = PyList_Size(p);
-alloc = ((PyListObject *)p)->allocated;
-
-printf("[*] Size of the Python List = %zd\n", size);
-printf("[*] Allocated = %zd\n", alloc);
+printf("[*] Size of the Python List = %ld\n", size);
+printf("[*] Allocated = %ld\n", list->allocated);
 
 for (i = 0; i < size; i++)
 {
-printf("Element %zd: ", i);
-
-obj = PyList_GetItem(p, i);
-printf("%s\n", Py_TYPE(obj)->tp_name);
+item = PyList_GET_ITEM(list, i);
+printf("Element %ld: %s\n", i, Py_TYPE(item)->tp_name);
 }
 }
