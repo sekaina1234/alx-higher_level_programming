@@ -5,17 +5,16 @@ def list_division(my_list_1, my_list_2, list_length):
         try:
             quotient = 0
             if i < len(my_list_1) and i < len(my_list_2):
-                if isinstance(my_list_1[i], (int, float)) and isinstance(my_list_2[i], (int, float)):
-                    if my_list_2[i] != 0:
-                        quotient = my_list_1[i] / my_list_2[i]
-                    else:
-                        print("division by 0")
-                else:
-                    print("wrong type")
-            else:
-                print("out of range")
-        except ZeroDivisionError:
-            quotient = 0
-        finally:
+                quotient = my_list_1[i] / my_list_2[i]
+            elif i >= len(my_list_1) or i >= len(my_list_2):
+                raise IndexError("out of range")
             result.append(quotient)
+        except ZeroDivisionError:
+            print("division by 0")
+            result.append(0)
+        except TypeError:
+            print("wrong type")
+            result.append(0)
+        finally:
+            pass
     return result
