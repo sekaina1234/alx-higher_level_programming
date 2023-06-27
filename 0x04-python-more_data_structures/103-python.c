@@ -1,7 +1,10 @@
+#define HAVE_CLOCK_GETTIME 1
+
 #include <stdio.h>
 #include <Python.h>
+
 /**
- * print_python_bytes - Prints bytes information
+* print_python_bytes - Prints bytes information
  *
  * @p: Python Object
  * Return: no return
@@ -17,10 +20,10 @@ printf("  [ERROR] Invalid Bytes Object\n");
 return;
 }
 
-long int size = PyBytes_Size(p);
+Py_ssize_t size = PyBytes_Size(p);
 char *string = PyBytes_AsString(p);
 
-printf("  size: %ld\n", size);
+printf("  size: %zd\n", size);
 printf("  trying string: %s\n", string);
 
 long int limit = (size >= 10) ? 10 : size + 1;
