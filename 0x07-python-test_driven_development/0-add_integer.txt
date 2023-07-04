@@ -1,0 +1,28 @@
+Trying:
+    add_integer(1, 2)
+Expecting:
+    3
+Trying:
+    add_integer(100, -2)
+Expecting:
+    98
+Trying:
+    add_integer(2)
+Expecting:
+    100
+Trying:
+    add_integer(100.3, -2)
+Expecting:
+    98
+Trying:
+    add_integer(4, "School")
+Expecting:
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+Trying:
+    add_integer(None)
+Expecting:
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
