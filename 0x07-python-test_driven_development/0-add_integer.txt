@@ -1,28 +1,31 @@
-Trying:
-    add_integer(1, 2)
-Expecting:
-    3
-Trying:
-    add_integer(100, -2)
-Expecting:
-    98
-Trying:
-    add_integer(2)
-Expecting:
-    100
-Trying:
-    add_integer(100.3, -2)
-Expecting:
-    98
-Trying:
-    add_integer(4, "School")
-Expecting:
-    Traceback (most recent call last):
-        ...
-    TypeError: b must be an integer
-Trying:
-    add_integer(None)
-Expecting:
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
+"""
+This module provides a function for adding integers.
+"""
+
+
+def add_integer(a, b=98):
+    """
+    Returns the addition of two integers.
+
+    Args:
+        a (int or float): The first number.
+        b (int or float, optional): The second number. Defaults to 98.
+
+    Returns:
+        int: The sum of the two numbers.
+
+    Raises:
+        TypeError: If either argument is not an integer or a float.
+        OverflowError: If infinity is provided as an argument.
+        ValueError: If NaN (Not a Number) is provided as an argument.
+    """
+
+    if not isinstance(a, (int, float)):
+        raise TypeError("a must be an integer or float")
+    if not isinstance(b, (int, float)):
+        raise TypeError("b must be an integer or float")
+
+    a = int(a)
+    b = int(b)
+
+    return a + b
