@@ -1,0 +1,169 @@
+Trying:
+    matrix_divided = __import__('2-matrix_divided').matrix_divided
+Expecting nothing
+**********************************************************************
+File "./tests/2-matrix_divided.txt", line 16, in 2-matrix_divided.txt
+Failed example:
+    matrix_divided = __import__('2-matrix_divided').matrix_divided
+Expected nothing
+Got:
+    [[0.5, 1.0, 1.5], [2.0, 2.5, 3.0], [3.5, 4.0, 4.5]]
+Trying:
+    matrix = [
+        [3, 6, 9],
+        [12, 15, 18]
+    ]
+Expecting nothing
+ok
+Trying:
+    print(matrix_divided(matrix, 3))
+Expecting:
+    [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
+ok
+Trying:
+    matrix = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+Expecting nothing
+ok
+Trying:
+    print(matrix_divided(matrix, 3))
+Expecting:
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+ok
+Trying:
+    print(matrix)
+Expecting:
+    [[1, 2, 3], [4, 5, 6]]
+ok
+Trying:
+    matrix = [
+        [1.1, -2.2, 3.3],
+        [4.4, 5.5, -6.6]
+    ]
+Expecting nothing
+ok
+Trying:
+    print(matrix_divided(matrix, 3))
+Expecting:
+    [[0.37, -0.73, 1.1], [1.47, 1.83, -2.2]]
+ok
+Trying:
+    matrix = [
+        [1, -2.2, 3, 4.4, 5],
+        [-6.6, 7.00, 8, 9.999, 10]
+    ]
+Expecting nothing
+ok
+Trying:
+    print(matrix_divided(matrix, 3))
+Expecting:
+    [[0.33, -0.73, 1.0, 1.47, 1.67], [-2.2, 2.33, 2.67, 3.33, 3.33]]
+ok
+Trying:
+    matrix = "not a list"
+Expecting nothing
+ok
+Trying:
+    print(matrix_divided(matrix, 3))
+Expecting:
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+ok
+Trying:
+    matrix = None
+Expecting nothing
+ok
+Trying:
+    print(matrix_divided(matrix, 3))
+Expecting:
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+ok
+Trying:
+    matrix = []
+Expecting nothing
+ok
+Trying:
+    print(matrix_divided(matrix, 3))
+Expecting:
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+ok
+Trying:
+    matrix = [[]]
+Expecting nothing
+ok
+Trying:
+    print(matrix_divided(matrix, 3))
+Expecting:
+    [[]]
+ok
+Trying:
+    matrix = [1, 2, 3]
+Expecting nothing
+ok
+Trying:
+    print(matrix_divided(matrix, 3))
+Expecting:
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+ok
+Trying:
+    matrix = [
+        [1, 2, 3],
+        [4, "not a number", 6]
+    ]
+Expecting nothing
+ok
+Trying:
+    print(matrix_divided(matrix, 3))
+Expecting:
+    Traceback (most recent call last):
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+ok
+Trying:
+    matrix = [
+        [1, 2, 3, 4],
+        [5, 6, 7]
+    ]
+Expecting nothing
+ok
+Trying:
+    print(matrix_divided(matrix, 3))
+Expecting:
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+ok
+Trying:
+    matrix = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+Expecting nothing
+ok
+Trying:
+    print(matrix_divided(matrix, "not a number"))
+Expecting:
+    Traceback (most recent call last):
+    TypeError: div must be a number
+ok
+Trying:
+    print(matrix_divided(matrix, None))
+Expecting:
+    Traceback (most recent call last):
+    TypeError: div must be a number
+ok
+Trying:
+    print(matrix_divided(matrix, 0))
+Expecting:
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero
+ok
+**********************************************************************
+1 items had failures:
+   1 of  28 in 2-matrix_divided.txt
+28 tests in 1 items.
+27 passed and 1 failed.
+***Test Failed*** 1 failures.
