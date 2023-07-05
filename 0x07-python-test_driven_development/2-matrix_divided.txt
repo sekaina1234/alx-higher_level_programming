@@ -1,5 +1,0 @@
->>> from decimal import Decimal, ROUND_HALF_UP
->>> matrix = [[1, 2, 3], [4, 5, 6]]
->>> result = matrix_divided(matrix, 3)
->>> [[Decimal(str(round(elem, 2))) for elem in row] for row in result]
-[[Decimal('0.33'), Decimal('0.67'), Decimal('1.00')], [Decimal('1.33'), Decimal('1.67'), Decimal('2.00')]]
