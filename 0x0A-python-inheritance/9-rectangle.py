@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Defines a class Rectangle that inherits from BaseGeometry."""
+"""Defines a class Rectangle that inherits
+from BaseGeometry."""
+
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 class Rectangle(BaseGeometry):
@@ -31,4 +33,5 @@ class Rectangle(BaseGeometry):
         Returns:
             str: The string representation of the rectangle.
         """
-        return ("[{}] {}/{}".format(self.__class__.__name__, self.__width, self.__height))
+        return ("[{}] {}/{}".format(self.__class__.__name__,
+            self.__width, self.__height))
