@@ -1,13 +1,21 @@
 #!/usr/bin/python3
-"""Adds all arguments to a Python list
-and saves them to a JSON file"""
-
-
+"""Add all arguments to a Python list
+and save them to a file."""
 import sys
-from os import path
-from importlib.machinery import SourceFileLoader
+import json
 
-save_to_json_file = SourceFileLoader("save_to_json_file", 
-        "./5-save_to_json_file.py").load_module().save_to_json_file
-load_from_json_file = SourceFileLoader("load_from_json_file", 
-        "./6-load_from_json_file.py").load_module().load_from_json_file
+def save_to_json_file(data, filename):
+    with open(filename, 'w') as file:
+        json.dump(data, file)
+
+def load_from_json_file(filename):
+    with open(filename, 'r') as file:
+        return json.load(file)
+
+if __name__ == "__main__":
+    try:
+        items = load_from_json_file("add_item.json")
+    except FileNotFoundError:
+        items = []
+    items.extend(sys.argv[1:])
+    save_to_json_file(items, "add_item.json")
