@@ -1,5 +1,11 @@
 #!/usr/bin/python3
-"""Module for converting an object to its JSON representation."""
+"""Module: 3-to_json_string.py
+Contains a function to convert an object
+to its JSON representation.
+"""
+
+
+import json
 
 
 def to_json_string(my_obj):
@@ -9,5 +15,6 @@ def to_json_string(my_obj):
         my_obj: The object to be converted to JSON.
 
     Returns:
-        str: The JSON representation of the object."""
-    return str(my_obj).replace("'", '"')
+        A string representing the JSON
+        representation of the object."""
+    return json.dumps(my_obj)
