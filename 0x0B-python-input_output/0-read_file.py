@@ -11,8 +11,5 @@ def read_file(filename=""):
         filename (str): The name of the file to be read. Default is an empty string.
     """
     with open(filename, 'r', encoding='utf-8') as file:
-        # Read the contents of the file
         contents = file.read()
-
-        # Print the contents to stdout
         print(contents, end='')
