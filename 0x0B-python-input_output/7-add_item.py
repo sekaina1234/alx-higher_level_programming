@@ -4,6 +4,7 @@ and save them to a file."""
 import sys
 import json
 
+
 def save_to_json_file(data, filename):
     with open(filename, 'w') as file:
         json.dump(data, file)
