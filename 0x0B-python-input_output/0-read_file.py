@@ -7,7 +7,7 @@ def read_file(filename=""):
 
     Args:
         filename (str): The name of the file to be read. Default is an empty string."""
-    
     with open(filename, 'r', encoding='utf-8') as file:
         contents = file.read()
+    
         print(contents, end='')
