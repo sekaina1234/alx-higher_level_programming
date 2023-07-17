@@ -2,10 +2,12 @@
 """ Rectangle module """
 from models.base import Base
 
+
 class Rectangle(Base):
     """ Rectangle class """
 
-    def __init__(self, width, height, x=0, y=0, id=None):
+    def __init__(self, width, height, x=0,
+            y=0, id=None):
         """ Constructor method """
         super().__init__(id)
         self.width = width
@@ -22,9 +24,11 @@ class Rectangle(Base):
     def width(self, value):
         """ Setter method for width """
         if not isinstance(value, int):
-            raise TypeError("width must be an integer")
+            raise TypeError("width must
+                    be an integer")
         if value <= 0:
-            raise ValueError("width must be > 0")
+            raise ValueError
+        ("width must be > 0")
         self.__width = value
 
     @property
@@ -36,7 +40,8 @@ class Rectangle(Base):
     def height(self, value):
         """ Setter method for height """
         if not isinstance(value, int):
-            raise TypeError("height must be an integer")
+            raise TypeError("height must
+                    be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
@@ -50,7 +55,8 @@ class Rectangle(Base):
     def x(self, value):
         """ Setter method for x """
         if not isinstance(value, int):
-            raise TypeError("x must be an integer")
+            raise TypeError("x must be an
+                    integer")
         if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
@@ -64,25 +70,30 @@ class Rectangle(Base):
     def y(self, value):
         """ Setter method for y """
         if not isinstance(value, int):
-            raise TypeError("y must be an integer")
+            raise TypeError("y must
+                    be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
 
     def area(self):
-        """ Calculates and returns the area of the rectangle """
+        """ Calculates and returns the
+        area of the rectangle """
         return self.width * self.height
 
     def display(self):
-        """ Prints the rectangle using the '#' character """
+        """ Prints the rectangle using the
+        '#' character """
         for _ in range(self.y):
             print()
         for _ in range(self.height):
-            print(" " * self.x + "#" * self.width)
+            print(" " * self.x + "#" *
+                    self.width)
 
     def __str__(self):
         """ String representation of the rectangle """
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return f"[Rectangle] ({self.id}) {self.x}/
+    {self.y} - {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
         """ Assigns values to the attributes """
@@ -95,7 +106,8 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
-        """ Returns the dictionary representation of the rectangle """
+        """ Returns the dictionary representation
+        of the rectangle """
         return {
             "id": self.id,
             "width": self.width,
