@@ -83,7 +83,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """ String representation of the rectangle """
-        return f
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height
 
     def update(self, *args, **kwargs):
         """ Assigns values to the attributes """
