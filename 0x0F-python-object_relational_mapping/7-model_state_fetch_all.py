@@ -16,18 +16,14 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database = sys.argv[3]
 
-    # Create the SQLAlchemy engine and bind it to the database
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(username, password, database),
                            pool_pre_ping=True)
 
-    # Create a session to interact with the database
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query all State objects and print them in ascending order by states.id
     states = session.query(State).order_by(State.id).all()
     for state in states:
         print("{}: {}".format(state.id, state.name))
 
-    # Close the session
     session.close()
