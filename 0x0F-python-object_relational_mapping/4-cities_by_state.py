@@ -25,7 +25,13 @@ if __name__ == "__main__":
         'SELECT cities.id, cities.name, states.name FROM cities JOIN states ON\
         cities.state_id = states.id;')
 
-        states = cursor.fetchall()
+        results = cursor.fetchall()
+        for row in results:
+            print(row)
 
-    for state in states:
-        print(state)
+        cursor.close()
+        db.close()
+
+    except MySQLdb.Error as e:
+        print('MySQL Error {}: {}'.format(e.args[0], e.args[1]))
+        sys.exit(1)
