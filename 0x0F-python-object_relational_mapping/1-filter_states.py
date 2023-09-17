@@ -6,7 +6,7 @@ lists all states with a name starting with N
 import MySQLdb
 import sys
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     if len(sys.argv) != 4:
         print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
         sys.exit(1)
