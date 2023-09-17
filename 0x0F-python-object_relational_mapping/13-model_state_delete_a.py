@@ -18,7 +18,6 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database = sys.argv[3]
 
-    # Create the SQLAlchemy engine and bind it to the specified database
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(username, password, database),
                            pool_pre_ping=True)
