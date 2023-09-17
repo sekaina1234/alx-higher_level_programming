@@ -17,21 +17,17 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database = sys.argv[3]
 
-    # Create the SQLAlchemy engine and bind it to the specified database
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(username, password, database),
                            pool_pre_ping=True)
 
-    # Create a session to interact with the database
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query State objects that contain the letter 'a' and display them
     states_with_a = session.query(State).filter(State.name
                     .like('%a%')).order_by(State.id).all()
     
     for state in states_with_a:
         print("{}: {}".format(state.id, state.name))
 
-    # Close the session
     session.close()
