@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-"""Print all City objects from the database hbtn_0e_14_usa.
-"""
+'''
+Prints all City objects
+'''
+
+
 
 from sys import argv
 from sqlalchemy import create_engine
