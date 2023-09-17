@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""List all State objects containing the letter 'a' from the database hbtn_0e_6_usa.
+"""List all State objects containing the letter 'a' from the
+database hbtn_0e_6_usa.
 """
 
 import sys
