@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Define the State class mapping to the states table in MySQL database.
 """
 
