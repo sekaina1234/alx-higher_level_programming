@@ -7,7 +7,7 @@ if len(sys.argv) == 2:
 
     try:
         response = requests.get(url)
-        response.raise_for_status()  # Raise an error for HTTP status codes >= 400
+        response.raise_for_status()
 
         x_request_id = response.headers.get('X-Request-Id')
         if x_request_id is not None:
