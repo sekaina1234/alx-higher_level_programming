@@ -2,25 +2,10 @@
 const request = require('request');
 const fs = require('fs');
 
-const url = process.argv[2];
-const filePath = process.argv[3];
-
-if (!url || !filePath) {
-  console.log('Usage: node 5-request_store.js <URL> <file-path>');
-} else {
-  request(url, (error, response, body) => {
-    if (error) {
-      console.error(error);
-    } else if (response.statusCode !== 200) {
-      console.error(`Request failed with status code: ${response.statusCode}`);
-    } else {
-      fs.writeFile(filePath, body, 'utf-8', (err) => {
-        if (err) {
-          console.error(err);
-        } else {
-          console.log('File successfully saved.');
-        }
-      });
+request(process.argv[2], function (_err, _res, body) {
+  fs.writeFile(process.argv[3], body, 'utf8', function (err) {
+    if (err) {
+      console.log(err);
     }
   });
-}
+});
