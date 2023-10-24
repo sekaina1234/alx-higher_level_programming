@@ -1,22 +1,24 @@
 #!/usr/bin/node
+
 const request = require('request');
+const starWarsUri = process.argv[2];
+let times = 0;
 
-const apiUrl = process.argv[2];
+request(starWarsUri, function (_err, _res, body) {
+  body = JSON.parse(body).results;
 
-if (!apiUrl) {
-  console.log('Usage: node 4-starwars_count.js <API URL>');
-} else {
-  request(apiUrl, (error, response, body) => {
-    if (error) {
-      console.error(error);
-    } else if (response.statusCode !== 200) {
-      console.error(`Request failed with status code: ${response.statusCode}`);
-    } else {
-      const filmsData = JSON.parse(body);
-      const wedgeAntillesFilms = filmsData.results
-        .filter(film => film.characters.includes("https://swapi-api.alx-tools.com/api/people/18/"));
+  for (let i = 0; i < body.length; ++i) {
+    const characters = body[i].characters;
 
-      console.log(wedgeAntillesFilms.length);
+    for (let j = 0; j < characters.length; ++j) {
+      const character = characters[j];
+      const characterId = character.split('/')[5];
+
+      if (characterId === '18') {
+        times += 1;
+      }
     }
-  });
-}
+  }
+
+  console.log(times);
+});
