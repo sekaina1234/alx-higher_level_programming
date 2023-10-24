@@ -2,17 +2,8 @@
 
 const fs = require('fs');
 
-const filePath = process.argv[2];
-const content = process.argv[3];
-
-if (!filePath || !content) {
-  console.log('Usage: node 1-writeme.js <file-path> <content>');
-} else {
-  fs.writeFile(filePath, content, 'utf-8', (err) => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log('File written successfully');
-    }
-  });
-}
+fs.writeFile(process.argv[2], process.argv[3], 'utf8', function (err) {
+  if (err) {
+    console.log(err);
+  }
+});
