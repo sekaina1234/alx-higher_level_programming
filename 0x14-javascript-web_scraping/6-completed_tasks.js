@@ -1,34 +1,24 @@
 #!/usr/bin/node
 const request = require('request');
 
-const apiUrl = process.argv[2];
+request(process.argv[2], function (err, _res, body) {
+  if (err) {
+    console.log(err);
+  } else {
+    const completedTasksByUsers = {};
+    body = JSON.parse(body);
 
-if (!apiUrl) {
-  console.log('Usage: node 6-completed_tasks.js <API URL>');
-} else {
-  request(apiUrl, (error, response, body) => {
-    if (error) {
-      console.error(error);
-    } else if (response.statusCode !== 200) {
-      console.error(`Request failed 
-	            with status code: ${response.statusCode}`);
-    } else {
-      const todos = JSON.parse(body);
+    for (let i = 0; i < body.length; ++i) {
+      const userId = body[i].userId;
+      const completed = body[i].completed;
 
-    
-      const completedTasks = {};
+      if (completed && !completedTasksByUsers[userId]) {
+        completedTasksByUsers[userId] = 0;
+      }
 
-      todos.forEach((todo) => {
-        if (todo.completed) {
-          if (completedTasks[todo.userId]) {
-            completedTasks[todo.userId]++;
-          } else {
-            completedTasks[todo.userId] = 1;
-          }
-        }
-      });
-
-      console.log(completedTasks);
+      if (completed) ++completedTasksByUsers[userId];
     }
-  });
-}
+
+    console.log(completedTasksByUsers);
+  }
+});
